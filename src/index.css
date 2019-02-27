@@ -6,6 +6,7 @@
   background-color: #f5f5f5;
   flex-direction: column;
 }
+
 .main-wrapper-column {
   width: 100%;
   display: flex;
@@ -31,7 +32,6 @@ h2 {
 }
 
 .login-form {
-  /* background-color: rgb(250, 255, 189); */
   padding: 30px;
   border-radius: 15px;
   width: 50%;
@@ -52,9 +52,11 @@ h2 {
   width: 100%;
   position: fixed;
 }
+
 .header-helper {
   height: 66px;
 }
+
 .header > div {
   width: 33%;
   max-width: 33%;
@@ -135,12 +137,15 @@ li {
 .active {
   background-color: rgb(232, 232, 232);
 }
+
 .clean:hover {
   color: gray;
 }
+
 .inline {
   display: inline-block;
 }
+
 .clean {
   padding-left: 3px;
   display: inline-block;
@@ -164,6 +169,7 @@ li {
   text-decoration: none;
   text-align: left;
 }
+
 .margin-bottom {
   margin-bottom: 30px;
 }
@@ -175,6 +181,7 @@ li {
 .-clickable {
   cursor: pointer;
 }
+
 .main-question {
   animation: 500ms ease-out 0s 1 slideInFromLeft;
 }
@@ -193,6 +200,7 @@ li {
     background-color: rgb(232, 232, 232);
   }
 }
+
 .fixed-wrapper {
   position: fixed;
   width: 100%;
