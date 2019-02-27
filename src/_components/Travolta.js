@@ -16,24 +16,24 @@ class Travolta extends React.Component {
       top: 0,
       right: 0
     }
+
     return (
       <div className="Travolta" style={st}>
-
       </div>
     )
   }
 }
 
 function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user, questions } = authentication;
-    return {
-        user,
-        users,
-        questions
-    };
-}
+  const { users, authentication } = state;
+  const { user, questions } = authentication;
 
+  return {
+    user,
+    users,
+    questions
+  };
+}
 
 const connectedTravolta = connect(mapStateToProps)(Travolta);
 export { connectedTravolta as Travolta };
