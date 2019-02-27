@@ -11,37 +11,38 @@ import { RegisterPage } from '../RegisterPage';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class App extends React.Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        const { dispatch } = this.props;
-        history.listen((location, action) => {
-            // clear alert on location change
-            dispatch(alertActions.clear());
-        });
-    }
+    const { dispatch } = this.props;
+    history.listen((location, action) => {
+      // clear alert on location change
+      dispatch(alertActions.clear());
+    });
+  }
 
-    render() {
-        const { alert } = this.props;
-        return (
-            <div className='main-wrapper'>
-                {alert.message &&
-                    <div className={`alert ${alert.type}`}>{alert.message}</div>
-                }
-                <Router history={history}>
-                    <div className='main-wrapper'>
-                        <PrivateRoute exact path="/" component={HomePage} />
-                        <Route path="/login" component={LoginPage} />
-                        <Route path="/register" component={RegisterPage} />
-                    </div>
-                </Router>
-            </div>
-        );
-    }
+  render() {
+    const { alert } = this.props;
+    return (
+      <div className='main-wrapper'>
+        {alert.message &&
+            <div className={`alert ${alert.type}`}>{alert.message}</div>
+        }
+        <Router history={history}>
+          <div className='main-wrapper'>
+            <PrivateRoute exact path="/" component={HomePage} />
+            <Route path="/login" component={LoginPage} />
+            <Route path="/register" component={RegisterPage} />
+          </div>
+        </Router>
+      </div>
+    );
+  }
 }
 
 function mapStateToProps(state) {
     const { alert } = state;
+
     return {
         alert
     };

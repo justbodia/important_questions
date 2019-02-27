@@ -6,9 +6,9 @@ import { createLogger } from 'redux-logger';
 const loggerMiddleware = createLogger();
 
 export const store = createStore(
-    rootReducer,
-    applyMiddleware(
-        thunkMiddleware,
-        loggerMiddleware
-    )
+  rootReducer,
+  applyMiddleware(
+      thunkMiddleware,
+      loggerMiddleware
+  )
 );

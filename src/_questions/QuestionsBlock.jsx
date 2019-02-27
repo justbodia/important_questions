@@ -27,6 +27,7 @@ class QuestionsBlock extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     };
+
     if (questions.length == 100 && important_questions_ids.length < 10) {
       return fetch('/important_questions_ids', requestOptions)
         .then(
@@ -54,6 +55,7 @@ class QuestionsBlock extends React.Component {
     this.state.questions && this.state.questions.map((question =>
       this.props.user.id == question.user_id && questions.push(question)
     ))
+
     return questions
   }
 
@@ -62,6 +64,7 @@ class QuestionsBlock extends React.Component {
     this.state.importantQuestionsIds && this.state.importantQuestionsIds.map((important_questions_id =>
       importantQuestionsIds.push(important_questions_id.question)
     ))
+
     return importantQuestionsIds
   }
 
@@ -71,6 +74,7 @@ class QuestionsBlock extends React.Component {
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(data)
     };
+
     return fetch('/questions', requestOptions)
       .then(
         (result) => {
@@ -113,7 +117,8 @@ class QuestionsBlock extends React.Component {
             </div>
             <div className="half-width-column">
             <div className="fixed-wrapper">
-              <h3 className='inline'>Important questions: </h3><span className='clean' onClick = {this._clearImportantQeustionsList.bind(this)}>clean list</span>
+              <h3 className='inline'>Important questions: </h3>
+              <span className='clean' onClick = {this._clearImportantQeustionsList.bind(this)}>clean list</span>
               <ol>
                 {questions.map((question) =>
                   important_questions_ids.indexOf(question.id + '') > -1 &&
@@ -130,14 +135,15 @@ class QuestionsBlock extends React.Component {
 }
 
 function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user, questions, importantQuestionsIds } = authentication;
-    return {
-        user,
-        users,
-        questions,
-        importantQuestionsIds
-    };
+  const { users, authentication } = state;
+  const { user, questions, importantQuestionsIds } = authentication;
+
+  return {
+      user,
+      users,
+      questions,
+      importantQuestionsIds
+  };
 }
 
 const connectedQuestionsBlock = connect(mapStateToProps)(QuestionsBlock);

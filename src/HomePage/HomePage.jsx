@@ -31,45 +31,45 @@ class HomePage extends React.Component {
       const { user, users, questions } = this.props;
       return (
         <div className='main-wrapper-column'>
-            <div className="header-helper">
-            </div>
-            <div className="header">
-              <div>
-                <span>You are logged in as </span>
-                <span className="full-name">{this.props.user.firstName} {this.props.user.lastName}.</span>
-              </div>
-              <div>
-                {this.state.importantQuestionsCount != 10 &&
-                  this.state.questionsCount == 100 &&
-                  <span>Define your 10 most important questions!</span>}
-                {this.state.importantQuestionsCount != 10 &&
-                  this.state.questionsCount < 100 &&
-                  <span>Write down 100 questions!</span>}
-                {this.state.importantQuestionsCount == 10 && <span>Congratulations!</span>}
-              </div>
-              <div className='header--menu-buttons'>
-                <MuiThemeProvider>
-                  <RaisedButton label="logout" secondary={true} href="/login"/>
-                </MuiThemeProvider>
-              </div>
+          <div className="header-helper"></div>
+          <div className="header">
+            <div>
+              <span>You are logged in as </span>
+              <span className="full-name">{this.props.user.firstName} {this.props.user.lastName}.</span>
             </div>
             <div>
-              <QuestionsBlock bindLastQuestion={this.bindLastQuestion.bind(this)}/>
+              {this.state.importantQuestionsCount != 10 &&
+                this.state.questionsCount == 100 &&
+                <span>Define your 10 most important questions!</span>}
+              {this.state.importantQuestionsCount != 10 &&
+                this.state.questionsCount < 100 &&
+                <span>Write down 100 questions!</span>}
+              {this.state.importantQuestionsCount == 10 && <span>Congratulations!</span>}
             </div>
+            <div className='header--menu-buttons'>
+              <MuiThemeProvider>
+                <RaisedButton label="logout" secondary={true} href="/login"/>
+              </MuiThemeProvider>
+            </div>
+          </div>
+          <div>
+            <QuestionsBlock bindLastQuestion={this.bindLastQuestion.bind(this)}/>
+          </div>
         </div>
       );
   }
 }
 
 function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user, questions, important_questions_ids } = authentication;
-    return {
-        user,
-        users,
-        questions,
-        important_questions_ids
-    };
+  const { users, authentication } = state;
+  const { user, questions, important_questions_ids } = authentication;
+
+  return {
+    user,
+    users,
+    questions,
+    important_questions_ids
+  };
 }
 
 const connectedHomePage = connect(mapStateToProps)(HomePage);

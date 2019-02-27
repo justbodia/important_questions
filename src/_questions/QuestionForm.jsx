@@ -54,12 +54,13 @@ class QuestionForm extends Component {
 }
 
 function mapStateToProps(state) {
-    const { users, authentication } = state;
-    const { user } = authentication;
-    return {
-        user,
-        users
-    };
+  const { users, authentication } = state;
+  const { user } = authentication;
+
+  return {
+      user,
+      users
+  };
 }
 
 const connectedQuestionForm = connect(mapStateToProps)(QuestionForm);
