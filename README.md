@@ -1,6 +1,6 @@
 # Define your most important questions
 
-git clone git@bitbucket.org:JustBodia/important_questions.git
+git clone git@github.com:justbodia/important_questions.git
 
 npm install
 
